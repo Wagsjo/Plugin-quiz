@@ -1,2 +1,1 @@
-# plugin-boilerplate
-Tigerton plugin boilerplate
+Ett litet plugin för att skapa en quiz
