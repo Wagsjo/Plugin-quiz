@@ -2,7 +2,7 @@
 	'use strict';
 
 	let answeredQuestions = 0;
-	// let quizDone = false;
+	let amountOfRightAnswers = 0;
 
 	$(document).ready(function($) {
 		$('.answers label').click(function() {
@@ -11,7 +11,6 @@
 			let quizId = $(this).parents('.quiz-wrapper').data('quizid');
 			let questionText = $(this).parent().siblings('.question').text();
 			let questionId = $(this).parents('.box').data('questionid');
-			
 
 			$.ajax({
 				type: 'POST',
@@ -25,13 +24,18 @@
 					questionId: questionId,
 					//håller koll på hur många frågor användaren svarat på.
 					answeredQuestions: answeredQuestions,
-					// quizDone: quizDone,
+					amountOfRightAnswers: amountOfRightAnswers,
 				},
 				success: function(response) {
-					console.log(response.data.quizDone);
+					console.log(response.data);
 					answeredQuestions = response.data.answeredQuestions;
+					amountOfRightAnswers = response.data.amountOfRightAnswers;
+					let result = response.data.result;
+
 					if(response.data.quizDone == true) {
-						window.location.href = '../result-page';
+
+						$('.quiz-wrapper').html(result);
+						$('.quiz-wrapper').css('display', 'block');
 					}
 
 					const box = $('.box').filter(function() {
@@ -47,8 +51,14 @@
 					console.log(response)
 				}
 			});
+
+			
+
 		});
+
 	});
+
+	
 
   
   })(jQuery);

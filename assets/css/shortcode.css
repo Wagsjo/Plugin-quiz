@@ -1,8 +1,15 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
 .quiz-wrapper {
-    display: grid;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
   grid-gap: 20px;
+  margin: 0 auto;
+  max-width: 1200px; /* Change this value to adjust the maximum width of the quiz-wrapper */
 }
+
 .box {
     max-width: 300px;
     max-height: 300px;
@@ -29,4 +36,37 @@
 
 .answers {
     display: inline;
+}
+
+
+/* Result-page */
+.do-it-again-btn-cont {
+  display: flex;
+  justify-content: center;
+}
+.do-it-again-btn {
+  border-bottom: 1px solid black;
+  padding: 4px;
+}
+
+/* .box-result {
+  max-width: 300px;
+  max-height: 300px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 20px;
+} */
+
+.box-number-result {
+  width: 30vh;
+  height: 30vh;
+  border-radius: 50%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 20px;
+  align-items: center;
+  color: white;
+  font-size: 40px;
+  
 }
